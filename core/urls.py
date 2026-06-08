@@ -11,4 +11,7 @@ path('admin/', admin.site.urls),
 path("", include("blog.urls")),
 path ('ckeditor/', include('ckeditor_uploader.urls')), 
 path('exemplos/', include('exemplos.urls')),
+path('autenticacao/', include('autenticacao.urls')),
+path('contato/', include('contato.urls')),
+path('cursos/', include('cursos.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
