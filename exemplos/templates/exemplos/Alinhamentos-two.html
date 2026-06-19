@@ -60,3 +60,41 @@
 
         </body>
         </html>
+
+
+
+
+
+                    <div class="form-group mt-3">
+                        <label for="email"> Endereço de Email</label>
+                        <input type="email" 
+                        name="email" 
+                        class="form-control {{ email_st}}" 
+                        placeholder="Digite seu email"
+                        required
+                        maxlength="100"
+                        value="{{ email }}"
+                        aria-describedby="email_feedback_server">
+
+                            <div id= "email_feedback_server" class="invalid-feedback">
+                                Email Inválido
+                            </div>
+                    </div>
+
+
+
+
+                    <div class="form-group mt-3">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" 
+        name="senha" 
+        class="form-control {{ senha_st }}" 
+        placeholder="Digite sua senha" 
+        required 
+        maxlength="20"
+        value="{{ senha }}"
+        aria-describedby="senha_feedback_server">
+
+        <div id= "senha_feedback_server" class="invalid-feedback">
+                                Senha não atende os critérios de segurança
+                            </div>

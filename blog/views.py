@@ -17,3 +17,10 @@ def post_detail(request, post_id):
 
 
     return render(request, 'blog/post_detail.html', context)
+
+def blog(request):
+    posts = Post.objects.all().order_by('-data_publicacao')
+    context = {
+        'posts': posts
+    }
+    return render(request, 'blog/blog.html', context)  

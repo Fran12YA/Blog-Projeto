@@ -1,0 +1,78 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-br">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de Usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+        </head>
+<body>
+<div class="container-fluid bg-dark mb-2">
+    <div class="row justify-content-center">
+    
+    <div class="col-xl-8">
+        
+        <header class="bg-dark mb-2">        
+        {%include 'fragments/navbar.html'%}
+
+    </header>
+</div> </div> </div> 
+    <main class="bg light">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+            <div class="col-md-8"> 
+<form method="post" action="{% url 'processa_formulario_v1' %}">                    
+    {% csrf_token %}
+                <div class="card p-5">
+                    {{form }}
+                    <div class="form-group mt-3">
+                        <label for="email"> Endereço de Email</label>
+                        <input type="email" 
+                        name="email" 
+                        class="form-control {{ email_st}}" 
+                        placeholder="Digite seu email"
+                        required
+                        maxlength="100"
+                        value="{{ email }}"
+                        aria-describedby="email_feedback_server">
+
+                            <div id= "email_feedback_server" class="invalid-feedback">
+                                Email Inválido
+                            </div>
+                    </div>
+
+                <div class="form-group mt-3">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" 
+        name="senha" 
+        class="form-control {{ senha_st }}" 
+        placeholder="Digite sua senha" 
+        required 
+        maxlength="20"
+        value="{{ senha }}"
+        aria-describedby="senha_feedback_server">
+
+        <div id= "senha_feedback_server" class="invalid-feedback">
+                                Senha não atende os critérios de segurança
+                            </div>
+</div>
+                    <div class="div card-footer ps-0 pt-3">
+                    <button type="submit" class="btn btn-primary">  Cadastrar </button>
+                </div>
+                </div>
+                </form>
+
+            </div>  
+        </div>  
+    </div>
+</main>
+            {%include 'fragments/footer.html' with var_position="position-sticky" %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+    crossorigin="anonymous"></script>
+</body>
+</html>
